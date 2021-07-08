@@ -1,0 +1,68 @@
+{
+  "name": "gantt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node -e js,json -w . -w .env src/index.js ",
+    "lint": "eslint src --fix --ext .js --ignore-path .gitignore --max-warnings 0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-shutdown": "^1.2.2",
+    "http-status-codes": "^2.1.4",
+    "httpstatus": "^1.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.6.4",
+    "tedious": "^11.0.9",
+    "util": "^0.12.4",
+    "winston": "^3.3.3",
+    "yarn": "^1.22.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "eslint": "7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.1.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "extends": [
+      "airbnb-base",
+      "plugin:prettier/recommended",
+      "plugin:jest/recommended"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "always",
+    "printWidth": 100
+  }
+}
