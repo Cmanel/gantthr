@@ -1,9 +1,15 @@
 module.exports = {
     HOST: "localhost",
-    USER: "writebacklogin",
-    PASSWORD: "Writeback2021!",
+   // USER: "writebacklogin",
+    //PASSWORD: "Writeback2021!",
     DB: "writeback",
     dialect: "mssql",
+    dialectModulePath: 'sequelize-msnodesqlv8',
+    dialectOptions: {
+      driver: 'SQL Server Native Client 10.0',
+      instanceName: 'SQLEXPRESS',
+      trustedConnection: true
+    },
     PORT: 1433,
     pool: {
       max: 5,
