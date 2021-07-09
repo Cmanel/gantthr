@@ -28,8 +28,39 @@ module.exports = bookshelf;
 
 const dbConfig = require("./dbConfig.js");
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
+let sequelize = new Sequelize({
+  dialect: 'mssql',
+  port:1433,
+  dialectModulePath: 'msnodesqlv8/lib/sequelize',
+  dialectOptions: {
+    options: {
+      connectionString: 'Driver=SQL Server Native Client 11.0;Server=localhost\\SQLEXPRESS;Database=writeback;Trusted_Connection=yes;',
+    },
+  },
+ 
+});
+ //new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+  /*const sequelize = new Sequelize
+  ({
+    dialect: dbConfig.dialect,
+    dialectModulePath: dbConfig.dialectModulePath,
+    dialectOptions: {
+      driver: dbConfig.dialectOptions.driver,
+      instanceName:  dbConfig.dialectOptions.instanceName,
+      trustedConnection: dbConfig.dialectOptions.trustedConnection
+    },
+    host: dbConfig.HOST,
+    database: dbConfig.DB,
+    port:dbConfig.PORT,
+  operatorsAliases: false,
+  pool: {
+    max: dbConfig.pool.max,
+    min: dbConfig.pool.min,
+    acquire: dbConfig.pool.acquire,
+    idle: dbConfig.pool.idle
+  }
+  });*/
+  /*host: dbConfig.HOST,
   dialect: dbConfig.dialect,
   port:dbConfig.PORT,
   operatorsAliases: false,
@@ -40,7 +71,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     acquire: dbConfig.pool.acquire,
     idle: dbConfig.pool.idle
   }
-});
+});*/
 const db = {};
 
 db.Sequelize = Sequelize;
