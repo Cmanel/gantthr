@@ -39,6 +39,7 @@ let sequelize = new Sequelize({
   },
  
 });
+//SQL Server Native Client 11.0
  //new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   /*const sequelize = new Sequelize
   ({
